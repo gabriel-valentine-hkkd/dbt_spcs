@@ -1,0 +1,11 @@
+name: dbt_spcs
+version: 1.0.0
+config-version: 2
+profile: snowflake_dbt
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+models:
+  dbt_spcs:
+    +materialized: view

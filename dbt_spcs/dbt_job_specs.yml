@@ -1,0 +1,22 @@
+# dbt_job.yml
+spec:
+  containers:
+    - name: dbt                     
+      image: /DEVOPS/REPO/DBT_REPO/dbt:1.9
+      command: ["dbt"]
+      args: ["build"]
+      env:
+        DBT_ACCOUNT: "XQEFMFM-HAKKODAINC-PARTNER"
+        DBT_ROLE: "DBT_SPCS_RUNNER"
+        DBT_DATABASE: "ANALYTICS"
+        DBT_SCHEMA: "TRANSFORM"
+        DBT_WAREHOUSE: "COMPUTE_WH"
+      secrets:
+        - snowflakeSecret:
+            objectName: DEVOPS.SECRETS.DBT_LOGIN
+          envVarName: DBT_USER
+          secretKeyRef: username
+        - snowflakeSecret:
+            objectName: DEVOPS.SECRETS.DBT_LOGIN
+          envVarName: DBT_PASSWORD
+          secretKeyRef: password
