@@ -1,4 +1,4 @@
--- models/hello.sql
+-- models/hello copy.sql
 {{ config(
     materialized = 'incremental',
     unique_key   = 'run_date',                -- one row per day
