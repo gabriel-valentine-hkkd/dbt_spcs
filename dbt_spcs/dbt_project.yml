@@ -8,4 +8,8 @@ macro-paths: ["macros"]
 
 models:
   dbt_spcs:
-    +materialized: view
+    +materialized: view         # default
+    greet_now:
+      +materialized: incremental
+      +unique_key: run_date
+      +on_schema_change: sync_all_columns
