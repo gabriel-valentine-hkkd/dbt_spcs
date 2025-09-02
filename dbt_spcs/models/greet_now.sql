@@ -1,3 +1,4 @@
+-- models/greet_now.sql
 {{ config(
     materialized = 'incremental',
     unique_key   = 'run_date',
